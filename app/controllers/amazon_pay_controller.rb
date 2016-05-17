@@ -4,6 +4,8 @@ USER_PROFILE = {
   email: "bob@bob.com",
   id: 11222222
 }
+require 'webmock'
+include WebMock::API
 
 class AmazonPayController < ApplicationController
   include AmazonPayment
@@ -15,10 +17,8 @@ class AmazonPayController < ApplicationController
     # The access token is available in the return URL
     # parameters after a user has logged in.
     access_token = 'User Access Token'
-
     store_user_session(access_token)
-    @profile = user_profile
-    # @profile = USER_PROFILE
+    @profile = user_profile.with_indifferent_access
   end
 
   def buy
