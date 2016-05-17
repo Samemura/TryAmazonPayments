@@ -1,0 +1,2 @@
+module AmazonPayHelper
+end

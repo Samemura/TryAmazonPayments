@@ -1,0 +1,23 @@
+
+h1 log in with Amazon Payments
+div id="AmazonLoginButton"
+
+javascript:
+    var authRequest;
+    OffAmazonPayments.Button("AmazonLoginButton", "AQR8184NJXADU", {
+        type: "LwA",
+        color: "Gold",
+        width: 100,
+        height: 50,
+        authorization: function () {
+            loginOptions = {scope: "profile postal_code payments:widget payments:shipping_address", popup: true};
+            authRequest = amazon.Login.authorize(loginOptions, "https://127.0.0.1:3000/index");
+        },
+        onError: function (error) {
+            // something bad happened
+        }
+    });
+
+input type="button" onclick="location.href='#{index_path}'" value="dummy login"
+
+p Log in with amazon button is not working. so please jump with dummy login button

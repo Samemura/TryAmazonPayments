@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    title
+      | AmazonPay
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+
+    javascript:
+        window.onAmazonLoginReady = function () {
+            amazon.Login.setClientId('amzn1.application-oa2-client.fa79e58459cf4a30aa478fc8f79e0ef7');
+            amazon.Login.setUseCookie(true);
+        };
+
+    script type='text/javascript' src='https://static-na.payments-amazon.com/OffAmazonPayments/us/sandbox/js/Widgets.js'
+
+    javascript:
+        amazon.Login.logout();
+        document.cookie = "amazon_Login_accessToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+        document.cookie = "aws-session-id=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+
+
+  body
+    = yield
