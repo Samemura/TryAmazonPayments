@@ -22,5 +22,10 @@ module AmazonPay
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    # logger
+    config.logger = Logger.new(config.paths["log"].first)
+    config.logger.formatter = Logger::Formatter.new
+    config.logger.formatter.datetime_format = "%Y-%m-%d %H:%M:%S"
   end
 end

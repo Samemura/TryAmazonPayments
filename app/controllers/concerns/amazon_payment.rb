@@ -2,11 +2,9 @@ require 'pay_with_amazon'
 
 module AmazonPayment
   CLIENT_ID = 'CLIENT_ID'
-  USER_PROFILE = {
-    name: "bob",
-    email: "bob@bob.com",
-    id: 11222222
-  }
+  MERCHANT_ID = 'YOUR_MERCHANT_ID'
+  ACCESS_KEY = 'YOUR_ACCESS_KEY'
+  SECRET_KEY = 'YOUR_SECRET_KEY'
 
   extend ActiveSupport::Concern
   include AmazonPaymentStub
@@ -28,6 +26,15 @@ module AmazonPayment
     @amazon_login ||= PayWithAmazon::Login.new(
       CLIENT_ID,
       region: :jp,
+      sandbox: true
+    )
+  end
+
+  def amazon_client
+    @amazon_client ||= PayWithAmazon::Client.new(
+      MERCHANT_ID,
+      ACCESS_KEY,
+      SECRET_KEY,
       sandbox: true
     )
   end

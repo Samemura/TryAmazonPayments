@@ -17,6 +17,7 @@ gem 'smarter_csv'
 gem 'hashie'
 gem 'dotenv-rails'
 gem 'webmock'
+gem 'httplog'
 
 # front development
 gem 'turbolinks'
