@@ -42,3 +42,9 @@ group :development do
   gem 'better_errors'
   gem 'binding_of_caller'
 end
+
+# Heroku
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end

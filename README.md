@@ -10,3 +10,6 @@ This code uses:
 * PayWithAmazon::Client
   * .set_order_reference_details
   * .confirm_order_reference
+
+Live demo is here:
+https://try-amazon-pay.herokuapp.com/
