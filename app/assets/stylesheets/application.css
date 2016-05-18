@@ -27,18 +27,7 @@ button {
   overflow:hidden;
   transition: .3s;
   background: #E5B14D;
-  &:after {
-    position: absolute;
-    transition: .3s;
-    content: '';
-    width: 0;
-    left: 50%;
-    bottom: 0;
-    height: 3px;
-    background: #f7f7f7;
-  }
 }
-
 
 button:hover {
   transform: scale(1.2);

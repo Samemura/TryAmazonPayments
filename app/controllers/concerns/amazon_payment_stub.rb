@@ -12,12 +12,6 @@ module AmazonPaymentStub
 
   WebMock.enable!
   WebMock.after_request do |req, res|
-    request = {
-      method: req.method.to_s.upcase,
-      uri: req.uri.to_s,
-      headers: req.headers,
-      body: req.body
-    }
     Rails.logger.info '[Webmock] ' + req.method.to_s.upcase + ', ' + req.uri.to_s + '
       Header:' + req.headers.inspect + '
       Body:' + req.body.inspect
