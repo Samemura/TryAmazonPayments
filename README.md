@@ -1,6 +1,6 @@
 # TryAmazonPayments
 
-This is study coding for AmazonPayments ruby gem.
+This is study coding for AmazonPayments ruby gem. (https://github.com/amzn/login-and-pay-with-amazon-sdk-ruby)
 It can show how to use its gem for simple case.
 Since AmazonPayments needs Amazon seller account to use sandbox, using Webmock to stub API access.
 
