@@ -4,6 +4,7 @@ class AmazonPayController < ApplicationController
   include AmazonPayment
 
   def login
+    session.clear
   end
 
   def index
