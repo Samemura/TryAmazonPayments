@@ -1,10 +1,10 @@
 require 'pay_with_amazon'
 
 module AmazonPayment
-  CLIENT_ID = 'CLIENT_ID'
-  MERCHANT_ID = 'YOUR_MERCHANT_ID'
-  ACCESS_KEY = 'YOUR_ACCESS_KEY'
-  SECRET_KEY = 'YOUR_SECRET_KEY'
+  MERCHANT_ID = ENV['MERCHANT_ID']
+  CLIENT_ID = ENV['CLIENT_ID']
+  ACCESS_KEY = ENV['ACCESS_KEY']
+  SECRET_KEY = ENV['SECRET_KEY']
 
   extend ActiveSupport::Concern
   include AmazonPaymentStub
