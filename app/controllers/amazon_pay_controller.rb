@@ -11,7 +11,6 @@ class AmazonPayController < ApplicationController
     # parameters after a user has logged in.
     store_user_session(params[:access_token])
     @profile = user_profile
-    binding.pry
   end
 
   def buy
