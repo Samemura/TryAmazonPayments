@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
-  get 'amazon_pay/confirm'
-
-  get 'amazon_pay/buy'
-
   root 'amazon_pay#login'
   get 'index' => 'amazon_pay#index'
+  get 'amazon_pay/buy'
+  get 'amazon_pay/confirm'
 
   # root 'AmazonPay#login'
 

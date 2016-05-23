@@ -7,7 +7,7 @@ module AmazonPayment
   SECRET_KEY = ENV['SECRET_KEY']
 
   extend ActiveSupport::Concern
-  include AmazonPaymentStub
+  include AmazonPaymentStub if ENV['STUB'] == 'true'
 
   def store_user_session(access_token)
     session[:access_token] = access_token

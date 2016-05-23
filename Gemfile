@@ -14,7 +14,6 @@ gem 'sprockets-rails'
 gem 'unicorn'
 gem 'smarter_csv'
 gem 'hashie'
-gem 'dotenv-rails'
 gem 'webmock'
 gem 'httplog'
 
@@ -29,6 +28,7 @@ gem 'sass-globbing'
 gem 'pay_with_amazon'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'sqlite3'
   gem 'rspec-rails'
   gem 'spring'

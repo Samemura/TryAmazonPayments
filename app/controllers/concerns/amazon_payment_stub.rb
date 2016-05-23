@@ -18,10 +18,12 @@ module AmazonPaymentStub
   end
 
   # login
-  stub_request(:get, "https://api.sandbox.amazon.co.jp/auth/o2/tokeninfo?access_token=User%20Access%20Token").
+  url = Regexp.escape("https://api.sandbox.amazon.co.jp/auth/o2/tokeninfo")
+  stub_request(:get, /#{url}.*/i).
     to_return(:status => 200, :body => {aud: AmazonPayment::CLIENT_ID}.to_json, :headers => {})
 
-  stub_request(:get, "https://api.sandbox.amazon.co.jp/user/profile").
+  url = Regexp.escape("https://api.sandbox.amazon.co.jp/user/profile")
+  stub_request(:get, /#{url}.*/i).
     to_return(:status => 200, :body => USER_PROFILE.to_json, :headers => {})
 
   # set order
