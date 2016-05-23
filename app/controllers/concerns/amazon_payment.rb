@@ -1,7 +1,7 @@
 require 'pay_with_amazon'
 
 module AmazonPayment
-  SELLER_ID_ID = ENV['SELLER_ID_ID']
+  SELLER_ID = ENV['SELLER_ID']
   CLIENT_ID = ENV['CLIENT_ID']
   ACCESS_KEY = ENV['ACCESS_KEY']
   SECRET_KEY = ENV['SECRET_KEY']
@@ -14,7 +14,7 @@ module AmazonPayment
   end
 
   def user_profile
-    session[:amazon_profile] ||= amazon_login.get_login_profile(session[:access_token])
+    session[:amazon_profile] ||= amazon_login.get_login_profile(session[:access_token]).symbolize_keys
   rescue => error
     logger.fatal error
   end
@@ -32,7 +32,7 @@ module AmazonPayment
 
   def amazon_client
     @amazon_client ||= PayWithAmazon::Client.new(
-      SELLER_ID_ID,
+      SELLER_ID,
       ACCESS_KEY,
       SECRET_KEY,
       sandbox: true
