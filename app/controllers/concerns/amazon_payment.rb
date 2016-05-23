@@ -1,7 +1,7 @@
 require 'pay_with_amazon'
 
 module AmazonPayment
-  MERCHANT_ID = ENV['MERCHANT_ID']
+  SELLER_ID_ID = ENV['SELLER_ID_ID']
   CLIENT_ID = ENV['CLIENT_ID']
   ACCESS_KEY = ENV['ACCESS_KEY']
   SECRET_KEY = ENV['SECRET_KEY']
@@ -32,7 +32,7 @@ module AmazonPayment
 
   def amazon_client
     @amazon_client ||= PayWithAmazon::Client.new(
-      MERCHANT_ID,
+      SELLER_ID_ID,
       ACCESS_KEY,
       SECRET_KEY,
       sandbox: true

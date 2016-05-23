@@ -9,7 +9,7 @@ html
 
     javascript:
         window.onAmazonLoginReady = function () {
-            amazon.Login.setClientId('amzn1.application-oa2-client.fa79e58459cf4a30aa478fc8f79e0ef7');
+            amazon.Login.setClientId("#{ENV['CLIENT_ID']}");
             amazon.Login.setUseCookie(true);
         };
 

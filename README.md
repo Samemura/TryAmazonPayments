@@ -11,5 +11,10 @@ This code uses:
   * .set_order_reference_details
   * .confirm_order_reference
 
+Environtment variables:
+* CLIENT_ID: Described in Seller Central web configuration for your app.
+* SELLER_ID: Received email for account registration from Amazon. Also called marchant ID.
+* CALLBACK_URL: URL to be moved after log in with Amazon.
+
 Live demo is here:
 https://try-amazon-pay.herokuapp.com/
