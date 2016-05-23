@@ -10,7 +10,7 @@ javascript:
         width: 100,
         height: 50,
         authorization: function () {
-            loginOptions = {scope: "profile postal_codye payments:widget payments:shipping_address", popup: true};
+            loginOptions = {scope: "profile postal_code", popup: true};
             authRequest = amazon.Login.authorize(loginOptions, "#{ENV['CALLBACK_URL']}");
         },
         onError: function (error) {
