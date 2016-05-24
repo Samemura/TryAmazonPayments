@@ -12,9 +12,7 @@ This code uses:
   * .confirm_order_reference
 
 Environtment variables:
-* CLIENT_ID: Described in Seller Central web configuration for your app.
-* SELLER_ID: Received email for account registration from Amazon. Also called marchant ID.
-* CALLBACK_URL: URL to be moved after log in with Amazon.
+For development, dotenv-rails is used so refer to .env.default for the detail.
 
 Live demo is here:
 https://try-amazon-pay.herokuapp.com/
