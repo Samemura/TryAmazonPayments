@@ -7,7 +7,7 @@ module AmazonPayment
   SECRET_KEY = ENV['SECRET_KEY']
 
   extend ActiveSupport::Concern
-  include AmazonPaymentStub if ENV['STUB'] == 'true'
+  include AmazonPaymentStub unless Rails.env.production?
 
   def access_token=(token)
     session[:access_token] ||= token
