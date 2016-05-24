@@ -17,14 +17,14 @@ module AmazonPayment
   end
 
   def user_profile
-    session[:amazon_profile] ||= get_profile
+    session[:amazon_profile] ||= get_profile(access_token)
   end
 
   # private
 
-  def get_profile
-    profile = amazon_login.get_login_profile(access_token).symbolize_keys
-    log "access token: " + access_token
+  def get_profile(token)
+    profile = amazon_login.get_login_profile(token).symbolize_keys
+    log "access token: " + token
     log "user profile: " + profile.to_s
     return profile
   rescue => error
