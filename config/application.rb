@@ -24,8 +24,8 @@ module AmazonPay
     config.active_record.raise_in_transactional_callbacks = true
 
     # logger
-    config.logger = Logger.new(config.paths["log"].first)
-    config.logger.formatter = Logger::Formatter.new
-    config.logger.formatter.datetime_format = "%Y-%m-%d %H:%M:%S"
+    # config.logger = Logger.new(config.paths["log"].first)
+    # config.logger.formatter = Logger::Formatter.new
+    # config.logger.formatter.datetime_format = "%H:%M:%S"
   end
 end

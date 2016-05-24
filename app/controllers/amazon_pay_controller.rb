@@ -10,8 +10,8 @@ class AmazonPayController < ApplicationController
   def index
     # The access token is available in the return URL
     # parameters after a user has logged in.
-    store_user_session(params[:access_token])
-    @profile = user_profile
+    self.access_token = params[:access_token]
+    @profile = self.user_profile
   end
 
   def buy
