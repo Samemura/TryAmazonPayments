@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/Samemura/login-and-pay-with-amazon-sdk-ruby.git
+  revision: dcfca8438ded4e512fad1677456f1bad9f624282
+  specs:
+    pay_with_amazon (1.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -38,7 +44,7 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.4.0)
     arel (6.0.3)
-    autoprefixer-rails (6.3.6)
+    autoprefixer-rails (6.3.6.1)
       execjs
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -47,7 +53,7 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-    byebug (8.2.5)
+    byebug (9.0.4)
     coderay (1.1.1)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -58,9 +64,9 @@ GEM
     coffee-script-source (1.10.0)
     colorize (0.7.7)
     concurrent-ruby (1.0.2)
-    config (1.1.1)
+    config (1.2.0)
       activesupport (>= 3.0)
-      deep_merge (~> 1.0.1)
+      deep_merge (~> 1.0, >= 1.0.1)
     crack (0.4.3)
       safe_yaml (~> 1.0.0)
     debug_inspector (0.0.2)
@@ -71,7 +77,7 @@ GEM
       dotenv (= 2.1.1)
       railties (>= 4.0, < 5.1)
     erubis (2.7.0)
-    execjs (2.6.0)
+    execjs (2.7.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     hashdiff (0.3.0)
@@ -97,22 +103,21 @@ GEM
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     method_source (0.8.2)
-    mime-types (3.0)
+    mime-types (3.1)
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2016.0221)
+    mime-types-data (3.2016.0521)
     mini_portile2 (2.0.0)
-    minitest (5.8.4)
-    multi_json (1.12.0)
+    minitest (5.9.0)
+    multi_json (1.12.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
-    pay_with_amazon (1.1.0)
     pg (0.18.4)
     pry (0.10.3)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
-    pry-byebug (3.3.0)
-      byebug (~> 8.0)
+    pry-byebug (3.4.0)
+      byebug (~> 9.0)
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
@@ -183,8 +188,8 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    slim (3.0.6)
-      temple (~> 0.7.3)
+    slim (3.0.7)
+      temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
     slim-rails (3.0.1)
       actionmailer (>= 3.1, < 5.0)
@@ -205,13 +210,13 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.3.11)
-    temple (0.7.6)
+    temple (0.7.7)
     therubyracer (0.12.2)
       libv8 (~> 3.16.14.0)
       ref
     thor (0.19.1)
     thread_safe (0.3.5)
-    tilt (2.0.2)
+    tilt (2.0.4)
     turbolinks (2.5.3)
       coffee-rails
     tzinfo (1.2.2)
@@ -226,7 +231,7 @@ GEM
       binding_of_caller (>= 0.7.2)
       railties (>= 4.0)
       sprockets-rails (>= 2.0, < 4.0)
-    webmock (2.0.2)
+    webmock (2.0.3)
       addressable (>= 2.3.6)
       crack (>= 0.3.2)
       hashdiff
@@ -246,7 +251,7 @@ DEPENDENCIES
   httplog
   jbuilder (~> 2.0)
   jquery-rails
-  pay_with_amazon
+  pay_with_amazon!
   pg
   pry-byebug
   pry-rails

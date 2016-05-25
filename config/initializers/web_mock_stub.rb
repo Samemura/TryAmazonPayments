@@ -4,7 +4,7 @@ include WebMock::API
 USER_PROFILE = {
   name: "bob",
   email: "bob@bob.com",
-  id: 11222222
+  user_id: 11222222
 }
 
 if ENV['STUB'] == 'true'

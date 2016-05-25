@@ -25,7 +25,7 @@ gem 'autoprefixer-rails'
 gem 'sass-globbing'
 
 # Amazon
-gem 'pay_with_amazon'
+gem 'pay_with_amazon', :git => 'https://github.com/Samemura/login-and-pay-with-amazon-sdk-ruby.git'
 
 group :development, :test do
   gem 'dotenv-rails'
