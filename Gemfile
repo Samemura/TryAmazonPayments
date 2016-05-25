@@ -31,8 +31,8 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'spring'
-  gem 'spring-commands-rspec'
+  # gem 'spring'
+  # gem 'spring-commands-rspec'
   gem 'pry-rails'
   gem 'pry-byebug'
 end

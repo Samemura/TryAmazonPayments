@@ -41,6 +41,7 @@ module AmazonPayment
     @amazon_login ||= PayWithAmazon::Login.new(
       CLIENT_ID,
       region: :jp,
+      currency_code: 'JPY',
       sandbox: true
     )
   end
@@ -50,6 +51,7 @@ module AmazonPayment
       SELLER_ID,
       ACCESS_KEY,
       SECRET_KEY,
+      region: :jp,
       sandbox: true
     )
   end

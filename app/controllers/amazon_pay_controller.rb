@@ -15,6 +15,9 @@ class AmazonPayController < ApplicationController
   end
 
   def buy
+  end
+
+  def confirm
     # These values are grabbed from the Login and Pay
     # with Amazon Address and Wallet widgets
     amazon_order_reference_id = 'AMAZON_ORDER_REFERENCE_ID'
@@ -23,14 +26,11 @@ class AmazonPayController < ApplicationController
     amazon_client.set_order_reference_details(
       amazon_order_reference_id,
       10000,
-      currency_code: 'JPY',
       seller_note: 'Note',
       seller_order_id: 'SellerOrderId',
       store_name: 'Amazon pay store'
     )
-  end
 
-  def confirm
     # Make the ConfirmOrderReference API call to
     # confirm the details set in the API call
     # above.
