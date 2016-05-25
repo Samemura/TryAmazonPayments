@@ -14,7 +14,7 @@ javascript:
   new OffAmazonPayments.Widgets.AddressBook({
     sellerId: "#{ENV['SELLER_ID']}",
     onOrderReferenceCreate: function (orderReference) {
-       orderReferenceId = orderReference.getAmazonOrderReferenceId();
+       document.getElementsById("order_reference_id") = orderReference.getAmazonOrderReferenceId();
     },
     onAddressSelect: function () {
         // do stuff here like recalculate tax and/or shipping
@@ -39,5 +39,6 @@ javascript:
     }
   }).bind("walletWidgetDiv");
 
-button onclick="location.href='#{amazon_pay_confirm_path}'"
-  | Confirm
+form action="#{amazon_pay_confirm_path}" method='post'
+  input type='hidden' id='order_reference_id'
+  input type='submit' name='commit' value='CONFIRM' class='button'
