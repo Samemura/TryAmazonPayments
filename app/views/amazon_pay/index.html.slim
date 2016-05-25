@@ -17,7 +17,7 @@ javascript:
     type: "PwA",
     authorization: function () {
       loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
-      authRequest = amazon.Login.authorize(loginOptions, 'https://try-amazon-pay-staging.herokuapp.com/amazon_pay/confirm');
+      authRequest = amazon.Login.authorize(loginOptions, 'https://try-amazon-pay-staging.herokuapp.com/amazon_pay/buy');
     },
     onError: function (error) {
       // something bad happened
