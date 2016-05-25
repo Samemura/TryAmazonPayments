@@ -10,6 +10,20 @@ br
 = image_tag asset_path('item.png')
 p 伝説の剣　￥10,000
 
+div id="AmazonPayButton"
+javascript:
+  var authRequest;
+  OffAmazonPayments.Button("AmazonPayButton", "#{ENV['SELLER_ID']}", {
+    type: "PwA",
+    authorization: function () {
+      loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
+      authRequest = amazon.Login.authorize(loginOptions, 'https://try-amazon-pay-staging.herokuapp.com/amazon_pay/confirm');
+    },
+    onError: function (error) {
+      // something bad happened
+    }
+  });
+
 button onclick="location.href='#{amazon_pay_buy_path}'"
   | Buy
 
