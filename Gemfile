@@ -18,7 +18,7 @@ gem 'webmock'
 gem 'httplog'
 
 # front development
-gem 'turbolinks'
+# gem 'turbolinks'
 gem 'slim-rails'
 gem 'html2slim'
 gem 'autoprefixer-rails'
