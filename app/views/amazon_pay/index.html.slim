@@ -17,7 +17,7 @@ javascript:
     type: "PwA",
     authorization: function () {
       loginOptions = { scope: "profile postal_code payments:widget payments:shipping_address", popup: true };
-      authRequest = amazon.Login.authorize(loginOptions, "#{amazon_pay_buy_path}");
+      authRequest = amazon.Login.authorize(loginOptions, "#{buy_path}");
     },
     onError: function (error) {
       // something bad happened
