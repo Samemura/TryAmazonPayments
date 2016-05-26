@@ -8,17 +8,22 @@ html
     = csrf_meta_tags
 
     javascript:
-        window.onAmazonLoginReady = function () {
-            amazon.Login.setClientId("#{ENV['CLIENT_ID']}");
-            amazon.Login.setUseCookie(true);
-        };
+      // get access token
+      function getURLParameter(name, source) {
+        return decodeURIComponent((new RegExp('[?|&amp;|#]' + name + '=' +
+                          '([^&;]+?)(&|#|;|$)').exec(source) || [, ""])[1].replace(/\+/g, '%20')) || null;
+      }
+
+      var accessToken = getURLParameter("access_token", location.hash);
+      if (typeof accessToken === 'string' && accessToken.match(/^Atza/)) {
+        document.cookie = "amazon_Login_accessToken=" + accessToken + ";path=/;secure";
+      }
+
+      window.onAmazonLoginReady = function () {
+        amazon.Login.setClientId("#{ENV['CLIENT_ID']}");
+      };
 
     script type='text/javascript' src='https://origin-na.ssl-images-amazon.com/images/G/09/EP/offAmazonPayments/sandbox/prod/lpa/js/Widgets.js'
-
-    javascript:
-        amazon.Login.logout();
-        document.cookie = "amazon_Login_accessToken=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-        document.cookie = "aws-session-id=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
   body
     = yield
