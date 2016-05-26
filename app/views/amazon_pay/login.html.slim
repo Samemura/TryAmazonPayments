@@ -11,7 +11,7 @@ javascript:
     height: 50,
     authorization: function () {
       loginOptions = {scope: "profile postal_code", popup: true};
-      authRequest = amazon.Login.authorize(loginOptions, "#{ENV['CALLBACK_URL']}/index");
+      authRequest = amazon.Login.authorize(loginOptions, "#{index_path}");
     },
     onError: function (error) {
       // something bad happened
