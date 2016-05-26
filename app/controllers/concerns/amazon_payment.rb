@@ -9,7 +9,7 @@ module AmazonPayment
   extend ActiveSupport::Concern
 
   def access_token=(token)
-    session[:access_token] ||= token
+    session[:access_token] = token
   end
 
   def access_token
@@ -23,8 +23,8 @@ module AmazonPayment
   # private
 
   def get_profile(token)
-    profile = amazon_login.get_login_profile(token).symbolize_keys
     log "access token: " + token
+    profile = amazon_login.get_login_profile(token).symbolize_keys
     log "user profile: " + profile.to_s
     return profile
   rescue => error

@@ -2,19 +2,18 @@
 
 class AmazonPayController < ApplicationController
   include AmazonPayment
+  helper_method :access_token, :user_profile
+  before_action :store_token
 
   def login
     session.clear
   end
 
   def index
-    # The access token is available in the return URL
-    # parameters after a user has logged in.
-    self.access_token = params[:access_token]
-    @profile = self.user_profile
   end
 
   def buy
+    p self.access_token
   end
 
   def confirm
@@ -36,5 +35,13 @@ class AmazonPayController < ApplicationController
     # above.
     amazon_order_reference_id = 'AMAZON_ORDER_REFERENCE_ID'
     amazon_client.confirm_order_reference(amazon_order_reference_id)
+  end
+
+  private
+
+  def store_token
+    # The access token is available in the return URL
+    # parameters after a user has logged in.
+    self.access_token = params[:access_token] if params[:access_token].present?
   end
 end
