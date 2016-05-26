@@ -41,6 +41,6 @@ javascript:
     }
   }).bind("walletWidgetDiv");
 
-form action="#{confirm_path}" method='post'
-  input type='hidden' id='order_reference_id'
-  input type='submit' name='commit' value='CONFIRM' class='button'
+= form_tag("#{confirm_path}", method:'post') do
+  input type='hidden' id='order_reference_id' name='order_reference_id'
+  input type='submit' class='button' value='CONFIRM'

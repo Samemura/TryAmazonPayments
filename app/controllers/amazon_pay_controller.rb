@@ -13,15 +13,15 @@ class AmazonPayController < ApplicationController
   end
 
   def buy
-    p self.access_token
   end
 
   def confirm
     # These values are grabbed from the Login and Pay
     # with Amazon Address and Wallet widgets
-    amazon_order_reference_id = 'AMAZON_ORDER_REFERENCE_ID'
-    address_consent_token = 'ADDRESS_CONSENT_TOKEN'
+    amazon_order_reference_id = params[:order_reference_id]
+    address_consent_token = access_token
 
+    binding.pry
     amazon_client.set_order_reference_details(
       amazon_order_reference_id,
       10000,

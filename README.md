@@ -16,3 +16,7 @@ For development, dotenv-rails is used so refer to .env.default for the detail.
 
 Live demo is here:
 https://try-amazon-pay.herokuapp.com/
+
+AmazonPayments needs javascript to invole Login with Amazon button but not so clear in Integration guide.
+Below generator is big benefit.
+http://johna1203.github.io/pwa-widget-generator/
