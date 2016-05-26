@@ -14,7 +14,7 @@ javascript:
   new OffAmazonPayments.Widgets.AddressBook({
     sellerId: "#{ENV['SELLER_ID']}",
     onOrderReferenceCreate: function (orderReference) {
-       document.getElementsById("order_reference_id") = orderReference.getAmazonOrderReferenceId();
+       document.getElementById("order_reference_id").value = orderReference.getAmazonOrderReferenceId();
     },
     onAddressSelect: function () {
         // do stuff here like recalculate tax and/or shipping
