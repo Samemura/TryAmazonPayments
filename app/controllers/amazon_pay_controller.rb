@@ -3,7 +3,7 @@
 class AmazonPayController < ApplicationController
   include AmazonPayment
   helper_method :access_token, :user_profile
-  before_action :store_token
+  before_action :store_parameter
 
   def login
     session.clear
@@ -18,25 +18,22 @@ class AmazonPayController < ApplicationController
   def confirm
     # These values are grabbed from the Login and Pay
     # with Amazon Address and Wallet widgets
-    amazon_order_reference_id = params[:order_reference_id]
-    address_consent_token = access_token
+    Rails.logger.info get_order_reference_details[:GetOrderReferenceDetailsResult][:OrderReferenceDetails][:Destination][:PhysicalDestination]
 
-    amazon_client.set_order_reference_details(
-      amazon_order_reference_id,
-      10000,
-      seller_note: 'Note',
-      seller_order_id: 'SellerOrderId',
-      store_name: 'Amazon pay store'
-    )
+    amount = 10000
+    set_order_reference_details(amount)
+    confirm_order_reference
+    authorize(amount)
 
-    amazon_client.confirm_order_reference(amazon_order_reference_id)
+    Rails.logger.info get_authorization_details
   end
 
   private
 
-  def store_token
+  def store_parameter
     # The access token is available in the return URL
     # parameters after a user has logged in.
     self.access_token = params[:access_token] if params[:access_token].present?
+    self.order_reference_id = params[:order_reference_id] if params[:order_reference_id].present?
   end
 end

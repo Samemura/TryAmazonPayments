@@ -26,6 +26,7 @@ gem 'sass-globbing'
 
 # Amazon
 gem 'pay_with_amazon', :git => 'https://github.com/Samemura/login-and-pay-with-amazon-sdk-ruby.git'
+gem 'xml-simple', '~> 1.1', '>= 1.1.5'
 
 group :development, :test do
   gem 'dotenv-rails'
