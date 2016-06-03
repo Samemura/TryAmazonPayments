@@ -18,7 +18,6 @@ class AmazonPayController < ApplicationController
   def confirm
     # These values are grabbed from the Login and Pay
     # with Amazon Address and Wallet widgets
-    p "MMMMMMMMMM"
     Rails.logger.info get_order_reference_details[:GetOrderReferenceDetailsResult][:OrderReferenceDetails][:Destination][:PhysicalDestination]
 
     amount = 10000
