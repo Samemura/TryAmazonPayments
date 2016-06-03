@@ -47,6 +47,9 @@ module AmazonPayment
 
   # method
   def get_order_reference_details
+    p "AAA"
+    p order_reference_id
+    p access_token
     res = amazon_client.get_order_reference_details(order_reference_id, address_consent_token: access_token)
     if res.success
       xml_to_hash(res.body)
