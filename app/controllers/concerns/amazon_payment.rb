@@ -6,37 +6,43 @@ module AmazonPayment
   CLIENT_ID = ENV['CLIENT_ID']
   ACCESS_KEY = ENV['ACCESS_KEY']
   SECRET_KEY = ENV['SECRET_KEY']
+  SANDBOX = ENV['SANDBOX']
 
   extend ActiveSupport::Concern
   class Error < StandardError; end
 
+  def init_amazon_payments
+    session["amazon_payments"] = {}
+  end
+
   # Accessor
+  # note: hash key will be changed from symbol to string after cookie.
   def access_token=(token)
-    session[:access_token] = token
+    session["amazon_payments"]["access_token"] = token
   end
   def access_token
-    session[:access_token]
+    session["amazon_payments"]["access_token"]
   end
   def user_profile
-    session[:login_profile] ||= get_login_profile(access_token)
+    session["amazon_payments"]["login_profile"] ||= get_login_profile(access_token)
   end
   def order_reference_id=(id)
-    session[:order_reference_id] = id
+    session["amazon_payments"]["order_reference_id"] = id
   end
   def order_reference_id
-    session[:order_reference_id]
+    session["amazon_payments"]["order_reference_id"]
   end
   def authorization_reference_id=(id)
-    session[:authorization_reference_id] = id  # https://payments.amazon.com/documentation/apireference/201752010
+    session["amazon_payments"]["authorization_reference_id"] = id  # https://payments.amazon.com/documentation/apireference/201752010
   end
   def authorization_reference_id
-    session[:authorization_reference_id]
+    session["amazon_payments"]["authorization_reference_id"]
   end
   def amazon_authorization_id=(id)
-    session[:amazon_authorization_id] = id
+    session["amazon_payments"]["amazon_authorization_id"] = id
   end
   def amazon_authorization_id
-    session[:amazon_authorization_id]
+    session["amazon_payments"]["amazon_authorization_id"]
   end
 
   # method
@@ -101,10 +107,11 @@ module AmazonPayment
     end
   end
 
+  #TODO remove before deploy
   # private
   def get_login_profile(token)
     log "access token: " + token
-    profile = amazon_login.get_login_profile(token).symbolize_keys
+    profile = amazon_login.get_login_profile(token)
     log "user profile: " + profile.to_s
     return profile
   rescue => error
@@ -129,7 +136,7 @@ module AmazonPayment
     @amazon_login ||= PayWithAmazon::Login.new(
       CLIENT_ID,
       region: :jp,
-      sandbox: true
+      sandbox: (SANDBOX == 'true')
     )
   end
 
@@ -140,7 +147,7 @@ module AmazonPayment
       SECRET_KEY,
       region: :jp,
       currency_code: 'JPY',
-      sandbox: true
+      sandbox: (SANDBOX == 'true')
     )
   end
 end

@@ -6,7 +6,7 @@ class AmazonPayController < ApplicationController
   before_action :store_parameter
 
   def login
-    session.clear
+    init_amazon_payments
   end
 
   def index
